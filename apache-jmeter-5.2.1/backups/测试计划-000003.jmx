@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.2.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1509075599000</longProp>
+        <longProp name="ThreadGroup.end_time">1509075599000</longProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">60</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="ie" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">utf-8</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">ie</stringProp>
+              </elementProp>
+              <elementProp name="wd" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">${wd}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">wd</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">www.baidu.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/s</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="37028633">${wd}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data_as_document</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="断言结果" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="wd" elementType="Argument">
+              <stringProp name="Argument.name">wd</stringProp>
+              <stringProp name="Argument.value">jmeter性能测试</stringProp>
+              <stringProp name="Argument.desc">搜索词</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="低交互预览" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">6</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">6</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;devStaffInfos&quot;: [&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;devStaffId&quot;: &quot;144496104781&quot;,&#xd;
+            &quot;devStaffName&quot;: &quot;吴春&quot;,&#xd;
+            &quot;devStaffType&quot;: &quot;1000&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;mktResInsts&quot;: [&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResId&quot;: &quot;13033751&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;10002597124&quot;,&#xd;
+            &quot;mktResInstNbr&quot;: &quot;TEST2020411-N2-A08&quot;,&#xd;
+            &quot;mktResStoreId&quot;: &quot;2184&quot;,&#xd;
+            &quot;salesPrice&quot;: &quot;548800&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResId&quot;: &quot;13033751&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;10002597125&quot;,&#xd;
+            &quot;mktResInstNbr&quot;: &quot;TEST2020411-N2-A09&quot;,&#xd;
+            &quot;mktResStoreId&quot;: &quot;2184&quot;,&#xd;
+            &quot;salesPrice&quot;: &quot;548800&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResId&quot;: &quot;13033751&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;10002597126&quot;,&#xd;
+            &quot;mktResInstNbr&quot;: &quot;TEST2020411-N2-A10&quot;,&#xd;
+            &quot;mktResStoreId&quot;: &quot;2184&quot;,&#xd;
+            &quot;salesPrice&quot;: &quot;548800&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResId&quot;: &quot;4&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;18137120487&quot;,&#xd;
+            &quot;mktResInstNbr&quot;: &quot;18137120487&quot;,&#xd;
+            &quot;mktResStoreId&quot;: &quot;100000080&quot;,&#xd;
+            &quot;salesPrice&quot;: &quot;0&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResId&quot;: &quot;10001555&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;34903343&quot;,&#xd;
+            &quot;mktResInstNbr&quot;: &quot;8986031504021020299&quot;,&#xd;
+            &quot;mktResStoreId&quot;: &quot;100000051&quot;,&#xd;
+            &quot;salesPrice&quot;: &quot;0&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;nbr&quot;: &quot;WMY2020041500520098&quot;,&#xd;
+    &quot;offerInstRels&quot;: [&#xd;
+        {&#xd;
+            &quot;aOfferInstId&quot;: -1,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;170000&quot;,&#xd;
+            &quot;zOfferInstId&quot;: -26&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aOfferInstId&quot;: -1,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;170000&quot;,&#xd;
+            &quot;zOfferInstId&quot;: -27&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;offerInsts&quot;: [&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;commodityType&quot;: &quot;10&quot;,&#xd;
+            &quot;offerId&quot;: &quot;100000005019474&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;offerSysName&quot;: &quot;201910-5G畅享169元套餐201910&quot;,&#xd;
+            &quot;offerType&quot;: &quot;11&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;commodityType&quot;: &quot;40&quot;,&#xd;
+            &quot;offerId&quot;: &quot;100000021985569&quot;,&#xd;
+            &quot;offerInstId&quot;: -26,&#xd;
+            &quot;offerName&quot;: &quot;黄金会员&quot;,&#xd;
+            &quot;offerSysName&quot;: &quot;201910-黄金会员&quot;,&#xd;
+            &quot;offerType&quot;: &quot;12&quot;,&#xd;
+            &quot;relType&quot;: &quot;170000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;commodityType&quot;: &quot;50&quot;,&#xd;
+            &quot;offerId&quot;: &quot;100000060225020&quot;,&#xd;
+            &quot;offerInstAttrs&quot;: [&#xd;
+                {&#xd;
+                    &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+                    &quot;attrId&quot;: &quot;100000000051573&quot;,&#xd;
+                    &quot;attrValue&quot;: &quot;13033751@@13033751@@13033751&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+                    &quot;attrId&quot;: &quot;100000000031750&quot;,&#xd;
+                    &quot;attrValue&quot;: &quot;TEST2020411-N2-A08@@TEST2020411-N2-A09@@TEST2020411-N2-A10&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;offerInstId&quot;: -27,&#xd;
+            &quot;offerSysName&quot;: &quot;202002-5G畅享169元套餐金融分期合约，每月返还51元，连续24个月（线下版）&quot;,&#xd;
+            &quot;offerType&quot;: &quot;13&quot;,&#xd;
+            &quot;relType&quot;: &quot;170000&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;offerProdInstRels&quot;: [&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;prodInstId&quot;: -2,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;prodInstId&quot;: -3,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;prodInstId&quot;: -14,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;prodInstId&quot;: -18,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;prodInstId&quot;: -20,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;prodInstId&quot;: -21,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;prodInstId&quot;: -23,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -1,&#xd;
+            &quot;prodInstId&quot;: -25,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -26,&#xd;
+            &quot;prodInstId&quot;: -2,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -26,&#xd;
+            &quot;prodInstId&quot;: -3,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -27,&#xd;
+            &quot;prodInstId&quot;: -2,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;offerInstId&quot;: -27,&#xd;
+            &quot;prodInstId&quot;: -28,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;,&#xd;
+            &quot;roleId&quot;: &quot;10100002&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;offerResInstRels&quot;: [&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;10002597124&quot;,&#xd;
+            &quot;mktResType&quot;: &quot;101001000&quot;,&#xd;
+            &quot;offerInstId&quot;: -27,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;10002597125&quot;,&#xd;
+            &quot;mktResType&quot;: &quot;101001000&quot;,&#xd;
+            &quot;offerInstId&quot;: -27,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;10002597126&quot;,&#xd;
+            &quot;mktResType&quot;: &quot;101001000&quot;,&#xd;
+            &quot;offerInstId&quot;: -27,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;orderAttrs&quot;: [],&#xd;
+    &quot;orderContactsInfo&quot;: {&#xd;
+        &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+        &quot;contactName&quot;: &quot;眉毛&quot;,&#xd;
+        &quot;contactPhone&quot;: &quot;13652321235&quot;&#xd;
+    },&#xd;
+    &quot;orderContext&quot;: {&#xd;
+        &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+        &quot;channelId&quot;: &quot;5729438276&quot;,&#xd;
+        &quot;createOrgId&quot;: &quot;5729438276&quot;,&#xd;
+        &quot;createStaff&quot;: &quot;144496104781&quot;,&#xd;
+        &quot;custId&quot;: &quot;400000069657&quot;,&#xd;
+        &quot;latitude&quot;: &quot;31.185956&quot;,&#xd;
+        &quot;longitude&quot;: &quot;121.721365&quot;,&#xd;
+        &quot;orgId&quot;: &quot;5729438276&quot;,&#xd;
+        &quot;position&quot;: &quot;否&quot;,&#xd;
+        &quot;regionId&quot;: &quot;8310100&quot;,&#xd;
+        &quot;sceneType&quot;: &quot;2010&quot;,&#xd;
+        &quot;sceneTypeName&quot;: &quot;商品订购&quot;,&#xd;
+        &quot;sysRoleIds&quot;: &quot;21146888&quot;,&#xd;
+        &quot;sysSource&quot;: &quot;101&quot;,&#xd;
+        &quot;sysUserId&quot;: &quot;200384937&quot;,&#xd;
+        &quot;visibility&quot;: &quot;3&quot;&#xd;
+    },&#xd;
+    &quot;orderHandler&quot;: {&#xd;
+        &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+        &quot;certNum&quot;: &quot;654129&quot;,&#xd;
+        &quot;certType&quot;: &quot;3|外国公民护照&quot;,&#xd;
+        &quot;custId&quot;: &quot;400000069657&quot;,&#xd;
+        &quot;handler&quot;: &quot;眉毛&quot;,&#xd;
+        &quot;handlerId&quot;: &quot;400000069657&quot;,&#xd;
+        &quot;handlerPhone&quot;: &quot;13652321235&quot;&#xd;
+    },&#xd;
+    &quot;prodInstRels&quot;: [&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -3&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -4&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -5&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -6&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -7&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -8&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -9&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -10&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -11&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -12&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -13&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -14&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -15&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -16&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -17&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -18&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -19&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -20&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -21&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -22&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -23&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -24&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -25&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;aProdInstId&quot;: -2,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;relType&quot;: &quot;100600&quot;,&#xd;
+            &quot;zProdInstId&quot;: -28&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;prodInsts&quot;: [&#xd;
+        {&#xd;
+            &quot;accNum&quot;: &quot;18137120487&quot;,&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;addressDesc&quot;: &quot;南京西路10381号楼1层111室&quot;,&#xd;
+            &quot;addressId&quot;: &quot;143627716&quot;,&#xd;
+            &quot;ownerCustId&quot;: &quot;400000069657&quot;,&#xd;
+            &quot;parRegionId&quot;: &quot;222123354117&quot;,&#xd;
+            &quot;paymentModeCd&quot;: &quot;1200&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;101&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001315&quot;,&#xd;
+            &quot;prodInstAcctRels&quot;: [&#xd;
+                {&#xd;
+                    &quot;acctId&quot;: &quot;400000307901&quot;,&#xd;
+                    &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+                    &quot;ifDefaultAcctId&quot;: &quot;0&quot;,&#xd;
+                    &quot;prodInstAcctRelId&quot;: -29&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;prodInstAttrs&quot;: [&#xd;
+                {&#xd;
+                    &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+                    &quot;attrId&quot;: &quot;480427&quot;,&#xd;
+                    &quot;attrValue&quot;: &quot;1200&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+                    &quot;attrId&quot;: &quot;10000338808&quot;,&#xd;
+                    &quot;attrValue&quot;: &quot;8986031504021020299&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;prodInstId&quot;: -2,&#xd;
+            &quot;prodUseType&quot;: &quot;1000&quot;,&#xd;
+            &quot;regionId&quot;: &quot;222123354525&quot;,&#xd;
+            &quot;stdAddrId&quot;: &quot;143627716&quot;,&#xd;
+            &quot;useCustId&quot;: &quot;400000069657&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;990090036&quot;,&#xd;
+            &quot;prodInstAttrs&quot;: [&#xd;
+                {&#xd;
+                    &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+                    &quot;attrId&quot;: &quot;990000170034&quot;,&#xd;
+                    &quot;attrValue&quot;: &quot;1001&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+                    &quot;attrId&quot;: &quot;990000170035&quot;,&#xd;
+                    &quot;attrValue&quot;: &quot;1005&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;prodInstId&quot;: -3,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;990167004&quot;,&#xd;
+            &quot;prodInstId&quot;: -4,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001390&quot;,&#xd;
+            &quot;prodInstId&quot;: -5,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000000113&quot;,&#xd;
+            &quot;prodInstId&quot;: -6,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001321&quot;,&#xd;
+            &quot;prodInstId&quot;: -7,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001396&quot;,&#xd;
+            &quot;prodInstId&quot;: -8,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000000582&quot;,&#xd;
+            &quot;prodInstId&quot;: -9,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001323&quot;,&#xd;
+            &quot;prodInstId&quot;: -10,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001365&quot;,&#xd;
+            &quot;prodInstId&quot;: -11,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001392&quot;,&#xd;
+            &quot;prodInstId&quot;: -12,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;10000000293&quot;,&#xd;
+            &quot;prodInstId&quot;: -13,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000004988&quot;,&#xd;
+            &quot;prodInstId&quot;: -14,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001322&quot;,&#xd;
+            &quot;prodInstId&quot;: -15,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000004970&quot;,&#xd;
+            &quot;prodInstId&quot;: -16,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000004978&quot;,&#xd;
+            &quot;prodInstId&quot;: -17,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001340&quot;,&#xd;
+            &quot;prodInstId&quot;: -18,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001318&quot;,&#xd;
+            &quot;prodInstId&quot;: -19,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000000110&quot;,&#xd;
+            &quot;prodInstId&quot;: -20,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000000111&quot;,&#xd;
+            &quot;prodInstId&quot;: -21,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001389&quot;,&#xd;
+            &quot;prodInstId&quot;: -22,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000000114&quot;,&#xd;
+            &quot;prodInstId&quot;: -23,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000000581&quot;,&#xd;
+            &quot;prodInstId&quot;: -24,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000000112&quot;,&#xd;
+            &quot;prodInstId&quot;: -25,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;prodFuncType&quot;: &quot;102&quot;,&#xd;
+            &quot;prodId&quot;: &quot;1000001335&quot;,&#xd;
+            &quot;prodInstAttrs&quot;: [],&#xd;
+            &quot;prodInstId&quot;: -28,&#xd;
+            &quot;prodUseType&quot;: &quot;2000&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;prodResInstRels&quot;: [&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;18137120487&quot;,&#xd;
+            &quot;mktResType&quot;: &quot;100001000&quot;,&#xd;
+            &quot;prodInstId&quot;: -2,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;actType&quot;: &quot;ADD&quot;,&#xd;
+            &quot;mktResInstId&quot;: &quot;34903343&quot;,&#xd;
+            &quot;mktResType&quot;: &quot;103006000&quot;,&#xd;
+            &quot;prodInstId&quot;: -2,&#xd;
+            &quot;relType&quot;: &quot;1000&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;remark&quot;: {&#xd;
+        &quot;actType&quot;: &quot;ADD&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">ord.ie.sh.ctc.com</stringProp>
+          <stringProp name="HTTPSampler.port">8181</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ord/ordbizsuporder/ordercenter/biz/normalInteraction/preview</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">30000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">30000</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
